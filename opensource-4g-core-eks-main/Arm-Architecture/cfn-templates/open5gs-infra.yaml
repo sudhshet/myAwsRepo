@@ -498,7 +498,7 @@ Resources:
     Type: AWS::DocDB::DBClusterParameterGroup
     Properties:
       Description: "DocumentDB Parameter Group"
-      Family: docdb3.6
+      Family: docdb4.0
       Name: !Sub "docDbParameterGroup-${AWS::StackName}"
       Parameters:
         audit_logs: "disabled"
@@ -515,7 +515,7 @@ Resources:
       DBClusterIdentifier : Open5gsDocDbCluster
       DBClusterParameterGroupName : !Ref DBParameterGroup
       DBSubnetGroupName : !Ref DBSubnetGroup
-      EngineVersion : 3.6.0
+      EngineVersion : 4.0.0
       MasterUsername : !Ref MasterUserName
       MasterUserPassword : !Ref MasterUserPassword
       Port : "27017"
