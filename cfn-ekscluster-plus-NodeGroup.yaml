@@ -582,7 +582,6 @@ Resources:
           - !Ref NodeImageId
           - !Ref NodeImageIdSSMParam
         InstanceType: !Ref NodeInstanceType
-        KeyName: !Ref KeyName
         SecurityGroupIds:
         - !Ref NodeSecurityGroup
         UserData: !Base64
