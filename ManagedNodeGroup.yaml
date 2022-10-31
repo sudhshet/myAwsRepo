@@ -24,7 +24,7 @@ Metadata:
           
 Parameters:
   VPCEKSClusterStackName:
-    Type:String
+    Type: String
     Default: ""
     Description: "Name of the Stack with which VPC/EKS cluster was created.
 
