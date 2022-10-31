@@ -605,32 +605,6 @@ Resources:
             - required
             - optional
 
-  NodeGroup:
-    Type: "AWS::AutoScaling::AutoScalingGroup"
-    Properties:
-      DesiredCapacity: !Ref NodeAutoScalingGroupDesiredCapacity
-      LaunchTemplate:
-        LaunchTemplateId: !Ref NodeLaunchTemplate
-        Version: !GetAtt NodeLaunchTemplate.LatestVersionNumber
-      MaxSize: !Ref NodeAutoScalingGroupMaxSize
-      MinSize: !Ref NodeAutoScalingGroupMinSize
-      Tags:
-        - Key: Name
-          PropagateAtLaunch: true
-          Value: !Sub ${ClusterName}-NodeGroup-Node
-        - Key: !Sub kubernetes.io/cluster/${ClusterName}
-          PropagateAtLaunch: true
-          Value: owned
-      VPCZoneIdentifier: 
-        - !Ref SubnetPrivateUSWEST2A
-        - !Ref SubnetPrivateUSWEST2B
-        - !Ref SubnetPrivateUSWEST2C
-    UpdatePolicy:
-      AutoScalingRollingUpdate:
-        MaxBatchSize: 1
-        MinInstancesInService: !Ref NodeAutoScalingGroupDesiredCapacity
-        PauseTime: PT5M
-
   EksNodeGroup:
     Type: AWS::EKS::Nodegroup
     Properties:
