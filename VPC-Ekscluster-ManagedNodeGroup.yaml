@@ -623,13 +623,6 @@ Resources:
         - !Ref SubnetPrivateUSWEST2A
         - !Ref SubnetPrivateUSWEST2B
         - !Ref SubnetPrivateUSWEST2C
-      Tags:
-        - Key: Name
-          PropagateAtLaunch: true
-          Value: !Sub ${ClusterName}-NodeGroup-Node
-        - Key: !Sub kubernetes.io/cluster/${ClusterName}
-          PropagateAtLaunch: true
-          Value: owned
 
 Outputs:
   EKSClusterARN:
