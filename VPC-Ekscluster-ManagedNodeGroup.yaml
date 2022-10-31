@@ -609,7 +609,7 @@ Resources:
     Type: AWS::EKS::Nodegroup
     Properties:
       ClusterName: !Sub ${ClusterName}
-      NodeRole: !Ref NodeInstanceRole.arn
+      NodeRole: !GetAtt NodeInstanceRole.arn
       InstanceTypes:
         - !Ref NodeInstanceType
       LaunchTemplate: 
