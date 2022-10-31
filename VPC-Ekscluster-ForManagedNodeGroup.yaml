@@ -389,6 +389,8 @@ Resources:
       
 
 Outputs:
+  EKSClusterName:
+    Value: !Ref ClusterName
   EKSClusterARN:
     Value: !GetAtt 
       - EKSCluster
