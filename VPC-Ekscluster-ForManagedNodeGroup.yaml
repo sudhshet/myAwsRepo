@@ -34,17 +34,6 @@ Mappings:
       EKSFargatePods: eks-fargate-pods.amazonaws.com
  
 
-Conditions:
-  HasNodeImageId: !Not
-    - "Fn::Equals":
-      - !Ref NodeImageId
-      - ""
-
-  IMDSv1Disabled:
-    "Fn::Equals":
-      - !Ref DisableIMDSv1
-      - "true"
- 
 Resources:
   ClusterSharedNodeSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
