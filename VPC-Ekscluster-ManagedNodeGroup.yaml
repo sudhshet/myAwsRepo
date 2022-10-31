@@ -115,12 +115,6 @@ Resources:
   EKSCluster:
     Type: 'AWS::EKS::Cluster'
     Properties:
-      EncryptionConfig:
-        - Provider:
-            KeyArn: >-
-              arn:aws:kms:us-west-2:470924794887:key/88b96cfc-55cd-40d8-a2ff-e16aaa070bf6
-          Resources:
-            - secrets
       KubernetesNetworkConfig: {}
       Name: !Ref ClusterName
       ResourcesVpcConfig:
@@ -138,6 +132,12 @@ Resources:
       RoleArn: !GetAtt 
         - ServiceRole
         - Arn
+      Logging:
+        ClusterLogging:
+          EnabledTypes:
+            - Type: api
+            - Type: audit
+            - Type: authenticator
       Tags:
         - Key: Name
           Value: !Sub '${AWS::StackName}/EKSCluster'
