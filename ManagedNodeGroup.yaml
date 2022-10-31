@@ -26,7 +26,7 @@ Parameters:
   VPCEKSClusterStackName:
     Type: String
     Default: ""
-    Description: "Name of the Stack with which VPC/EKS cluster was created.
+    Description: "Name of the Stack with which VPC/EKS cluster was created"
 
   BootstrapArguments:
     Type: String
