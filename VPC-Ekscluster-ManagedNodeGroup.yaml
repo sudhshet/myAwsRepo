@@ -699,7 +699,3 @@ Outputs:
   NodeSecurityGroup:
     Description: The security group for the node group
     Value: !Ref NodeSecurityGroup
-
-  NodeAutoScalingGroup:
-    Description: The autoscaling group
-    Value: !Ref NodeGroup
