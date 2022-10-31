@@ -575,8 +575,6 @@ Resources:
               DeleteOnTermination: true
               VolumeSize: !Ref NodeVolumeSize
               VolumeType: gp2
-        IamInstanceProfile:
-          Arn: !GetAtt NodeInstanceProfile.Arn
         ImageId: !If
           - HasNodeImageId
           - !Ref NodeImageId
