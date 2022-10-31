@@ -621,6 +621,9 @@ Resources:
         - !Ref SubnetPrivateUSWEST2A
         - !Ref SubnetPrivateUSWEST2B
         - !Ref SubnetPrivateUSWEST2C
+    DependsOn:
+      - NodeLaunchTemplate
+      - EKSCluster
 
 Outputs:
   EKSClusterARN:
