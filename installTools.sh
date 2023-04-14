@@ -53,3 +53,6 @@ source <(helm completion bash)
 # Install git and docker
 sudo yum -y install git docker
 sudo systemctl start docker
+
+# Install nc tool
+sudo yum -y install nc
