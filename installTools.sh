@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 # Install kubectl
 sudo curl --silent --location -o /usr/local/bin/kubectl \
-   https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+   curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.26.4/2023-05-11/bin/darwin/amd64/kubectl
 sudo chmod +x /usr/local/bin/kubectl
 
 # Update aws cli
