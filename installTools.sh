@@ -42,6 +42,7 @@ eksctl completion bash >> ~/.bash_completion
 . ~/.bash_completion
 
 # Install helm
+export VERIFY_CHECKSUM=false
 curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
 helm version --short
