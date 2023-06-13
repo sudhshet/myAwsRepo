@@ -55,6 +55,7 @@ source <(helm completion bash)
 
 # Install git and docker
 sudo yum -y install git docker
+sudo amazon-linux-extras install docker -y
 sudo systemctl start docker
 
 # Install nc tool
