@@ -53,11 +53,9 @@ helm completion bash >> ~/.bash_completion
 . ~/.bash_completion
 source <(helm completion bash)
 
-# Install git and docker
-sudo yum -y install git docker
-sudo amazon-linux-extras install docker -y
-sudo systemctl start docker
-sudo nohup dockerd &
+# Install git
+sudo yum -y install git 
+
 
 # Install nc tool
 sudo yum -y install nc
