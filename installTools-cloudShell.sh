@@ -53,9 +53,5 @@ helm completion bash >> ~/.bash_completion
 . ~/.bash_completion
 source <(helm completion bash)
 
-# Install git
-sudo yum -y install git 
-
-
 # Install nc tool
 sudo yum -y install nc
