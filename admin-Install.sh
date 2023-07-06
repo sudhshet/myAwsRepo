@@ -35,7 +35,7 @@ eksctl anywhere download artifacts
 # To decompress this file, use the following command:
 tar -xvf eks-anywhere-downloads.tar.gz
 
-# Installation of Docker CE
+# Installation of Docker CE - https://computingforgeeks.com/how-to-install-docker-on-ubuntu/?expand_article=1
 echo "Installing Docker Pre-requisites..."
 sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
