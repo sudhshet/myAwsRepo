@@ -43,8 +43,8 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 echo "Installing Docker CE..."
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io
+sudo apt -y update
+sudo apt -y install docker-ce docker-ce-cli containerd.io
 sudo docker version
 
 # In order for the next command to run smoothly, ensure that Docker has been pre-installed and is running. Then run the following:
