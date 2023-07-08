@@ -29,7 +29,6 @@ kubectl completion bash >>  ~/.bash_completion
 . ~/.bash_completion
 
 # Download the artifacts and images that will be used by the cluster nodes to the Admin machine using the following command:, A compressed file eks-anywhere-downloads.tar.gz will be downloaded.
-
 eksctl anywhere download artifacts
 
 # To decompress this file, use the following command:
@@ -46,6 +45,17 @@ echo "Installing Docker CE..."
 sudo apt -y update
 sudo apt -y install docker-ce docker-ce-cli containerd.io
 sudo docker version
+
+# Download Hook OS files
+mkdir -p eksa/hook/
+EKSA_RELEASE_VERSION=$(curl -sL https://anywhere-assets.eks.amazonaws.com/releases/eks-a/manifest.yaml | yq ".spec.latestVersion")
+BUNDLE_MANIFEST_URL=$(curl -sL https://anywhere-assets.eks.amazonaws.com/releases/eks-a/manifest.yaml | yq ".spec.releases[] | select(.version==\"$EKSA_RELEASE_VERSION\").bundleManifestUrl")
+cd ./eksa/hook
+wget `curl -s $BUNDLE_MANIFEST_URL | yq ".spec.versionsBundles[0].tinkerbell.tinkerbellStack.hook.vmlinuz.amd.uri"`
+wget `curl -s $BUNDLE_MANIFEST_URL | yq ".spec.versionsBundles[0].tinkerbell.tinkerbellStack.hook.initramfs.amd.uri"`
+
+# Install Pre-requisites for Docker private registry
+sudo apt -y install docker-compose nginx
 
 # In order for the next command to run smoothly, ensure that Docker has been pre-installed and is running. Then run the following:
 echo "Downloading EKS Anywhere images..."
