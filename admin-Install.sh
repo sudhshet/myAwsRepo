@@ -55,7 +55,7 @@ wget `curl -s $BUNDLE_MANIFEST_URL | yq ".spec.versionsBundles[0].tinkerbell.tin
 wget `curl -s $BUNDLE_MANIFEST_URL | yq ".spec.versionsBundles[0].tinkerbell.tinkerbellStack.hook.initramfs.amd.uri"`
 
 # Install Pre-requisites for Docker private registry
-sudo apt -y install docker-compose nginx
+sudo apt -y install docker-compose nginx apache2-utils
 
 # In order for the next command to run smoothly, ensure that Docker has been pre-installed and is running. Then run the following:
 echo "Downloading EKS Anywhere images..."
