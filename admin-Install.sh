@@ -54,5 +54,18 @@ cd ./eksa/hook
 wget `curl -s $BUNDLE_MANIFEST_URL | yq ".spec.versionsBundles[0].tinkerbell.tinkerbellStack.hook.vmlinuz.amd.uri"`
 wget `curl -s $BUNDLE_MANIFEST_URL | yq ".spec.versionsBundles[0].tinkerbell.tinkerbellStack.hook.initramfs.amd.uri"`
 
+# In order for the next command to run smoothly, ensure that Docker has been pre-installed and is running. Then run the following:
+eksctl anywhere download images -o images.tar
 
+# Run docker Registry
+mkdir auth
+docker run --entrypoint htpasswd httpd:2 -Bbn testuser testpassword > auth/htpasswd
+docker run -d -p 5000:5000 --restart=always --name registry -v "$(pwd)"/auth:/auth -e "REGISTRY_AUTH=htpasswd" -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm" -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd registry:2
 
+# Setup Environment variable for Registry - 
+export REGISTRY_ENDPOINT=localhost:5000
+export REGISTRY_USERNAME=testuser
+export REGISTRY_PASSWORD=testpassword
+
+# Import images in Local Docker registry
+eksctl anywhere import images -i images.tar -r localhost:5000  --bundles ./eks-anywhere-downloads/bundle-release.yaml
