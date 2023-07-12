@@ -54,6 +54,7 @@ cd ./eksa/hook
 wget `curl -s $BUNDLE_MANIFEST_URL | yq ".spec.versionsBundles[0].tinkerbell.tinkerbellStack.hook.vmlinuz.amd.uri"`
 wget `curl -s $BUNDLE_MANIFEST_URL | yq ".spec.versionsBundles[0].tinkerbell.tinkerbellStack.hook.initramfs.amd.uri"`
 
+cd ../..
 # In order for the next command to run smoothly, ensure that Docker has been pre-installed and is running. Then run the following:
 eksctl anywhere download images -o images.tar
 
