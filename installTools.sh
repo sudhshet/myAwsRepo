@@ -61,4 +61,4 @@ sudo systemctl start docker
 sudo yum -y install nc
 
 # aws cli command completion
-complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/usr/local/bin/aws_completer' aws >> ~/.bashrc
