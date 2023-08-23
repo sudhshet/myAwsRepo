@@ -59,3 +59,6 @@ sudo systemctl start docker
 
 # Install nc tool
 sudo yum -y install nc
+
+# aws cli command completion
+complete -C '/usr/local/bin/aws_completer' aws
