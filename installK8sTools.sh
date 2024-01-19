@@ -43,6 +43,5 @@ helm version --short
 
 # Enable bash completion for helm
 helm completion bash >> ~/.bash_completion
-. /etc/profile.d/bash_completion.sh
 . ~/.bash_completion
 source <(helm completion bash)
