@@ -20,7 +20,6 @@ for command in kubectl jq envsubst
 
 # Enable kubectl bash_completion
 kubectl completion bash >>  ~/.bash_completion
-. /etc/profile.d/bash_completion.sh
 . ~/.bash_completion
 
 # Install eksctl
@@ -32,7 +31,6 @@ eksctl version
 
 # Enable eksctl bash completion
 eksctl completion bash >> ~/.bash_completion
-. /etc/profile.d/bash_completion.sh
 . ~/.bash_completion
 
 # Install helm
