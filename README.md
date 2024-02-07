@@ -1,1 +1,1 @@
-# My AWS repo for all AWS deployment and tests
+# My AWS repo for custom scripts
